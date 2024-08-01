@@ -80,11 +80,17 @@ class Fxg(Tk):
 
             while True:
                 for line in lines:
-                    sock.sendto(line.encode(), (IP_ADDRESS, PORT_set))
-                    print(f'{line.strip()}')
+                    try:
+                        sock.sendto(line.encode(), (IP_ADDRESS, PORT_set))
+                        print(f'{line.strip()}')
+                        time.sleep(1)
+                    except valueError:
+                        messagebox.showinfo("failed to read file")
+                        return
+                        
                     
                     
-                    time.sleep(1)
+                    
                    
                                    
                                                                                                                                    
