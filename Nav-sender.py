@@ -81,16 +81,13 @@ class Fxg(Tk):
             while True:
                 for line in lines:
                     sock.sendto(line.encode(), (IP_ADDRESS, PORT_set))
-                    print(f'Sent: {line.strip()}')
+                    print(f'{line.strip()}')
                     
                     
-                    try:
-                        time.sleep(1)
-                    
-                    except ValueError:
-                        return                    
-                                                                                                              
-                        
+                    time.sleep(1)
+                   
+                                   
+                                                                                                                                   
                 
                 
     def Start(udp):
