@@ -11,7 +11,7 @@ class Fxg(Tk):
     def __init__(udp):
         super(Fxg, udp).__init__()
         
-        udp.title("UDP Nav (Ctrl+c to stop)")
+        udp.title("UDP Nav Sender")
         udp.t1 = threading.Thread(target=udp.Run)
         udp.minsize(150, 70)
         udp.Ip()
@@ -88,11 +88,9 @@ class Fxg(Tk):
                     try:
                         time.sleep(1)
                     
-                    except KeyboardInterrupt:
-                        return
-                     
-                        
-                                                                                        
+                    except ValueError:
+                        return                    
+                                                                                                              
                         
                 
                 
