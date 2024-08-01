@@ -3,6 +3,8 @@ import os
 import time
 import tkinter as tk
 from tkinter import filedialog, Tk, Label, Entry, Button, messagebox
+import threading
+
 
 
 class Fxg(Tk):
@@ -10,6 +12,7 @@ class Fxg(Tk):
         super(Fxg, udp).__init__()
         
         udp.title("UDP Nav (Ctrl+c to stop)")
+        udp.t1 = threading.Thread(target=udp.Run)
         udp.minsize(150, 70)
         udp.Ip()
         udp.Ipe()
@@ -17,6 +20,7 @@ class Fxg(Tk):
         udp.Porte()
         udp.Start()
         udp.Quit()
+        
        
     def Ip(udp):
         
@@ -49,7 +53,7 @@ class Fxg(Tk):
 
     def Run(udp):
         
-       
+      
         try:
             IP_ADDRESS = udp.Ip_e.get()
         except ValueError:
@@ -86,15 +90,15 @@ class Fxg(Tk):
                     
                     except KeyboardInterrupt:
                         return
-                    
+                     
                         
-                        
-                        
+                                                                                        
                         
                 
                 
     def Start(udp):
-        udp.start = tk.Button(width = 16,text = "Start", command=udp.Run )
+        t1 = threading.Thread(target=udp.Run)
+        udp.start = tk.Button(width = 16,text = "Start", command=t1.start )
         udp.start.grid(column = 1, row = 3)
         
         
@@ -109,5 +113,4 @@ class Fxg(Tk):
 
 fxg = Fxg()
 fxg.mainloop()
-
 
