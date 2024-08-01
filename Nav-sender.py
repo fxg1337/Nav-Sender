@@ -12,7 +12,6 @@ class Fxg(Tk):
         super(Fxg, udp).__init__()
         
         udp.title("UDP Nav Sender")
-        udp.t1 = threading.Thread(target=udp.Run)
         udp.minsize(150, 70)
         udp.Ip()
         udp.Ipe()
